@@ -21,9 +21,28 @@
 
 - Handbook：https://aiweb3.school/zh/handbook/
 - WCB 课程页面：https://web3career.build/zh/programs/AI-Web3-School
-- WCB Learning 页面：https://web3career.build/zh/programs/AI-Web3-School#tab=learning
+- WCB Learning 页面：https://web3career.build/zh/programs/AI-Web3-School?tab=learning
 - WCB Agent API 文档：https://web3career.build/llms.txt
+- WCB Agent API 端点：https://web3career.build/api/agent/call
 - GitHub 仓库：https://github.com/dodinhanhquyen-ui/ai-web3-school-cohort-0
+
+## WCB API 配置
+
+- **programId**：`cmnx791nl008sru0167pzp4ki`
+- **API Key 环境变量**：`WCB_AGENT_SECRET_API_KEY`（存于本地用户环境变量，勿写入仓库）
+- 调用方式：`POST https://web3career.build/api/agent/call`，Header 带 `Authorization: Bearer <KEY>`
+
+每次会话开始时，用以下调用拉取最新日历：
+```json
+{
+  "procedure": "events.listForLearner",
+  "input": {
+    "programId": "cmnx791nl008sru0167pzp4ki",
+    "rangeStart": "<今日 00:00 UTC>",
+    "rangeEnd": "<7天后 23:59 UTC>"
+  }
+}
+```
 
 如果某个页面打不开，不要猜测内容；告诉学员打开对应链接确认。
 
